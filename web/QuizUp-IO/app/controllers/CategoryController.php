@@ -6,7 +6,7 @@ class CategoryController extends \Phalcon\Mvc\Controller
     public function indexAction($id=null)
     {
       $this->view->newName = "";
-      $this->view->newId = "";;
+      $this->view->newId = "";
       if($id == null){
         $this->view->isCreate = true;
       } else {
