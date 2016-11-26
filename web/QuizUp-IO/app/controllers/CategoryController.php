@@ -1,6 +1,6 @@
 <?php
 
-class CategoryController extends \Phalcon\Mvc\Controller
+class CategoryController extends ControllerBase
 {
 
     public function indexAction($id=null)

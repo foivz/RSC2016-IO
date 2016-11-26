@@ -1,7 +1,13 @@
-<form class="admin-form" action="{{url('category/create')}}" method="POST">
+<form class="admin-form" action="{% if isCreate == true %}{{url('category/create')}}{% else %}{{url('category/save')}}{%endif%}" method="POST">
   <div class="form-group">
     <label for="name">Category name:</label>
-    <input type="text" class="form-control" name="name" placeholder="e.g. Sports">
+    <input type="text" class="form-control" id="name" name="name" value="{{newName}}" placeholder="e.g. Sports"/>
+    <input type="hidden" class="form-control" id="id" name="id" value="{{newId}}" />
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  {% if isCreate == true %}
+        <input type="submit" class="btn btn-primary" value="Submit">
+  {%else %} 
+        <input type="submit" value="Save" class="btn btn-primary"/>
+        <a href="{{url('category')}}">Cancel</a>
+  {% endif %}
 </form>

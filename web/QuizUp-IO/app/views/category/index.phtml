@@ -20,7 +20,7 @@
           <tr>
             <td>{{category.id}}</td>
             <td>{{category.name}}</td>
-            <td><a href="{{ url('category/update/'~category.id) }}"><i class="fa fa-edit"></i></a>   <a href="{{ url('category/delete/'~category.id) }}"><i class="fa fa-trash"></i></a></li></td>
+            <td><a href="{{ url('category/'~category.id) }}"><i class="fa fa-edit"></i></a>   <a href="{{ url('category/delete/'~category.id) }}"><i class="fa fa-trash"></i></a></li></td>
           </tr>
         {% endfor %}    
       </table>
