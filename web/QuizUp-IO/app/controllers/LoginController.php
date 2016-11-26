@@ -4,7 +4,6 @@ class LoginController extends \Phalcon\Mvc\Controller
 {
     public function indexAction()
     {
-		$this->assets->addJs('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', false, false);
 		$this->assets->addJs('https://plus.google.com/js/client:platform.js', false, false, ['async'=>'async', 'defer'=>'defer']);
 		$this->assets->addJs("js/facebookLogin.js");
 		$this->assets->addJs('js/googleLogin.js');
@@ -14,6 +13,21 @@ class LoginController extends \Phalcon\Mvc\Controller
 	{
 		$displayName = $this->request->getPost('displayName');
 		$email = $this->request->getPost('email');
+		
+		$userCount = count(User::find("display_name LIKE '$displayName' AND email LIKE '$email'"));
+		
+		if ($userCount == 0)
+		{
+			$newUser = new User();
+			$newUser->display_name = $displayName;
+			$newUser->email = $email;
+			$newUser->is_admin = 0;
+			$newUser->is_moderator = 0;
+			$newUser->save();
+		}
+		
+		$this->session->set('USER', $newUser);
+		$this->session->start();
 	}
 }
 
