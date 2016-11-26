@@ -1,7 +1,5 @@
 <?php
 
-use Phalcon\Mvc\Model\Validator\Email as Email;
-
 class User extends \Phalcon\Mvc\Model
 {
 
@@ -41,29 +39,6 @@ class User extends \Phalcon\Mvc\Model
      * @Column(type="string", length=90, nullable=true)
      */
     public $display_name;
-
-    /**
-     * Validations and business logic
-     *
-     * @return boolean
-     */
-    public function validation()
-    {
-        $this->validate(
-            new Email(
-                [
-                    'field'    => 'email',
-                    'required' => true,
-                ]
-            )
-        );
-
-        if ($this->validationHasFailed() == true) {
-            return false;
-        }
-
-        return true;
-    }
 
     /**
      * Initialize method for model.

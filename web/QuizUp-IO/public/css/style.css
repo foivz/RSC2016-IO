@@ -157,10 +157,11 @@ footer p{
 /*------------------------------
 Sidebar
 -----------------------------*/ 
+
 .sidebar{
   width: 25%;
   background: #333;
-  min-height: 600px;
+  min-height: 700px;
   float: left;
 }
 
@@ -192,11 +193,18 @@ Sidebar
 .dashboard{
   width: 75%;
   float: left;
-  background: #fff;
+}
+
+.dashboard .fa-edit, .dashboard .fa-trash{
+  font-size: 18px;
 }
 
 .padded{
   padding: 25px;
+}
+
+.dashboard .table{
+  margin-top: 30px;
 }
 
 /*----------------------------
@@ -209,3 +217,5 @@ Sidebar
 .form-control{
   border-radius: 0;
 }
+
+

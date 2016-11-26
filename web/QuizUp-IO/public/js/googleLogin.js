@@ -19,6 +19,9 @@ function handleResponse(resp)
 		data: {
 			"email": email, 
 			"displayName": displayName
+		},
+		success: function(data) {
+			alert(data);
 		}
 	});
 }
