@@ -1,0 +1,9 @@
+{
+  "name": "QuizUpIO",
+  "version": "0.0.1",
+  "description": "QuizUp App",
+  "dependencies": {
+    "express": "4.10.2",
+    "socket.io": "^1.6.0"
+  }
+}
