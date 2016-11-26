@@ -27,6 +27,13 @@ class Answer extends \Phalcon\Mvc\Model
     public $question;
 
     /**
+     *
+     * @var integer
+     * @Column(type="integer", length=1, nullable=false)
+     */
+    public $is_true;
+
+    /**
      * Initialize method for model.
      */
     public function initialize()
