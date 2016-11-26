@@ -16,6 +16,7 @@ class QuestionController extends ControllerBase
 	$this->view->setVar('questionTypes', $questionTypes);
         
         $this->assets->addJs("js/app.js");
+        $this->assets->addJs("js/question.js");
     }
 
     public function createAction()
