@@ -47,7 +47,7 @@ class Question extends \Phalcon\Mvc\Model
     {
         $this->hasMany('id', 'Answer', 'question', ['alias' => 'Answer']);
         $this->hasMany('id', 'EventQuestion', 'question', ['alias' => 'EventQuestion']);
-        $this->belongsTo('category', 'Category', 'id', ['alias' => 'Category']);
+        $this->belongsTo('category', 'Category', 'id', array('alias' => 'Category'));
         $this->belongsTo('type', 'QuestionType', 'id', ['alias' => 'QuestionType']);
     }
 

@@ -1,0 +1,17 @@
+<form method="post" action="{% if isCreate == true%}{{url('questionType/create')}}{% else %}{{url('questionType/save')}}{%endif%}">
+  <label for="name"></label>
+  <input type="text" name="name" value="{{newName}}" />
+  <input type="hidden" name="id" value="{{newId}}" />
+  {%if isCreate == true%}
+    <input type="submit" value="Create new" />
+  {% else %}
+    <input type="submit" value="Save" />
+    <a href="{{url('questionType')}}">Cancel</a>
+  {%endif %}
+</form>
+
+<ul>
+  {% for questionType in questionTypes %}
+    <li>{{questionType.name}} - {{questionType.id}}  <a href="{{url('questionType/'~questionType.id)}}">Edit</a> <a href="{{url('questionType/delete/'~questionType.id)}}">Delete</a> </li>
+  {% endfor %}
+</ul>

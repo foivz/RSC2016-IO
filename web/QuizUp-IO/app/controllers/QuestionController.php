@@ -5,14 +5,17 @@ class QuestionController extends ControllerBase
 
     public function indexAction()
     {
+        $this->view->staticCategory = new Category();
         $questions = Question::find();
-		$this->view->setVar('questions', $questions);
+	$this->view->setVar('questions', $questions);
 		
-		$categories = Category::find();
-		$this->view->setVar('categories', $categories);
+	$categories = Category::find();
+	$this->view->setVar('categories', $categories);
 		
-		$questionTypes = QuestionType::find();
-		$this->view->setVar('questionTypes', $questionTypes);
+	$questionTypes = QuestionType::find();
+	$this->view->setVar('questionTypes', $questionTypes);
+        
+        $this->assets->addJs("js/app.js");
     }
 
     public function createAction()

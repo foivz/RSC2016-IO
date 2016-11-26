@@ -1,0 +1,33 @@
+<ul>
+  {% for question in questions%}
+    <li>{{question.text}} - {{staticCategory.findFirstById(question.category).name}}</li>
+  {% endfor %}
+</ul>
+
+<div>
+  <label for="text">Question: </label>
+  <textarea name="text" class="editor"></textarea>
+</div>
+<div>
+  <label for="category">Category: </label>
+  <select name="category">
+    <option value="">Choose category...</option>
+    {% for category in categories %}
+      <option value="{{category.id}}">{{category.name}}</option>
+    {% endfor %}
+  </select>
+</div>
+  <div>
+    <label for="type">Question type: </label>
+    <select name="type">
+    <option value="">Choose question type...</option>
+    {% for questionType in questionTypes %}
+      <option value="{{questionType.id}}">{{questionType.name}}</option>
+    {% endfor %}
+  </select>
+  </div>
+  
+  
+
+<script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+{{assets.outputJs()}}
