@@ -26,7 +26,7 @@ io.on('connection', function (socket) {
 
     //Identify user
     socket.on('auth', function (email) {
-        var sql = "SELECT * FROM ?? WHERE ?? = ?";
+        var sql = "SELECT * FROM ?? WHERE ?? = ??";
         var inserts = ['user', 'email', email];
         sql = mysql.format(sql, inserts);
         dbConnection.query(sql, function (err, rows, fields) {
