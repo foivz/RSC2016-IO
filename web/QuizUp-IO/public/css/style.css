@@ -1,0 +1,154 @@
+/*-----------------------------
+   General                    
+------------------------------*/
+/*
+  blue: #2A82FC;
+  text: #333;
+  white: #fafafa;
+*/
+
+body{
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/*-----------------------------
+   Navbar                    
+------------------------------*/
+
+.navbar-default{
+  background-color: #fff;
+  border: none;
+  -moz-box-shadow:    0px 0px 1px #333;
+  -webkit-box-shadow: 0px 0px 1px #333;
+  box-shadow:         0px 0px 1px #333;
+  font-size: 16px;
+  
+}
+
+.navbar{
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+
+.navbar-brand{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.5em;
+}
+
+.navbar-toggle{
+  border-radius: 0;
+  border: none;
+}
+.navbar-default .navbar-toggle:focus{
+  background: #fff;
+}
+.navbar-default .navbar-toggle:hover{
+  background: #2A82FC;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover{
+  background: #2A82FC;
+  color: #fafafa;
+}
+
+.fa-bars{
+  font-size: 18px;
+}
+
+/*-----------------------------
+   Info section                    
+------------------------------*/
+.info-section{
+  width: 100%;
+  padding: 150px 0;
+  text-align: center;
+  min-height: 500px;
+  background: url('../img/info-bg.jpg') center center no-repeat;
+  color: #fff;
+}
+
+.info-section h1{
+  text-align: center;
+  color: #fff;
+  font-size: 5em;
+  text-shadow: 1px 1px #333;
+}
+
+.info-description{
+  font-size: 2em;
+  font-weight: 700;
+  text-shadow: 1px 1px #333;
+}
+
+@media screen and (max-width: 480px) {
+  .info-section{
+    padding: 75px 25px;
+  }
+}
+
+
+/*-----------------------------
+   Evemts section                    
+------------------------------*/
+.events, .history{
+  padding: 80px 0 100px;
+}
+
+.events h1{
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.event-item{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.center{
+  text-align: center;
+}
+
+.show-more{
+  padding: 10px 30px;
+  border: 1px solid #2A82FC;
+  text-decoration: none !important;
+}
+
+.show-more:hover{
+  background: #2A82FC;
+  color: #fafafa;
+  transition: all 0.3s ease-in-out;
+}
+
+.all-events-btn{
+  margin-top: 20px;
+}
+
+.history{
+  background: #EFEDED;
+  text-align: center;
+}
+
+/*------------------------------
+  Footer
+ -----------------------------*/ 
+
+ footer{
+  text-align: center;
+  padding: 15px 0;
+  color: #fafafa;
+  background: #333;
+ }
+
+ footer p{
+  margin-bottom: 0;
+ }
