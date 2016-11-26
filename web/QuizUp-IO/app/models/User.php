@@ -38,16 +38,9 @@ class User extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(type="string", length=40, nullable=false)
+     * @Column(type="string", length=90, nullable=true)
      */
-    public $name;
-
-    /**
-     *
-     * @var string
-     * @Column(type="string", length=40, nullable=false)
-     */
-    public $surname;
+    public $display_name;
 
     /**
      * Validations and business logic
