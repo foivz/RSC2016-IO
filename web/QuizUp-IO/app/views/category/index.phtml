@@ -1,11 +1,39 @@
-<form method="post" action="{{url('category/create')}}">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" />
-  <input type="submit" value="Create new" />
-</form>
+  {% include "partials/header.phtml" %}
+
+  {% include "partials/nav-admin.phtml" %}
+
+  <div class="dashboard">
+    <div class="padded">
+      <h1>List of categories</h1> 
+      <a href="" class="btn btn-primary">Add New</a>
+
+      <table class="table">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+        
+      
+
+        {% for category in categories %}
+          <tr>
+            <td>{{category.id}}</td>
+            <td>{{category.name}}</td>
+            <td><a href="{{ url('category/update/'~category.id) }}"><i class="fa fa-edit"></i></a>   <a href="{{ url('category/delete/'~category.id) }}"><i class="fa fa-trash"></i></a></li></td>
+          </tr>
+        {% endfor %}    
+      </table>
+      {% include "partials/category-form.phtml" %}
+      <h1>Questions</h1>
+      <a href="" class="btn btn-primary">Add New Question</a>
+      {% include "partials/question-form.phtml" %}
+    </div>
+    
+  </div>
   
-  <ul>
-      {% for category in categories %}
-        <li>{{category.id}} - {{category.name}}  <a href="{{ url('category/update/'~category.id) }}">Update</a>   <a href="{{ url('category/delete/'~category.id) }}">Delete</a></li>
-      {% endfor %}
-  </ul>
+  
+  
+  {% include "partials/footer-admin.phtml" %}
+</body>
+</html>

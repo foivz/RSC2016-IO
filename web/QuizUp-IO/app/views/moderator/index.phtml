@@ -7,13 +7,7 @@
       <h1>List of categories</h1> 
       <a href="" class="btn btn-primary">Add New</a>
     </div>
-    <form class="admin-form">
-      <div class="form-group">
-        <label for="categoryName">Category name:</label>
-        <input type="text" class="form-control" id="categoryName" placeholder="e.g. Sports">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    {% include "partials/category-form.phtml" %}
   </div>
   
   
