@@ -1,48 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>QuizUp</title>
-    <link rel="icon" href="public/img/logo.png" type="image/x-icon">
-    <!-- Bootstrap -->
-    <link href="public/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/font-awesome/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Source+Sans+Pro:200,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/style.css">
+  {% include "partials/header.phtml" %}
 
+  {% include "partials/navigation.phtml" %}
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    {% include "partials/header.phtml" %}
+  <section class="info-section">
+      <div class="tcell">
+        <h1>QuizUp</h1>
+        <p class="info-description">
+          The ultimate Pub Quiz Platform
+        </p>
+      </div>      
+  </section>
 
-    <section class="info-section">
-        <div class="tcell">
-          <h1>QuizUp</h1>
-          <p class="info-description">
-            The ultimate Pub Quiz Platform
-          </p>
-        </div>      
-    </section>
+  {% include "partials/events.phtml" %}
 
-    {% include "partials/events.phtml" %}
-
-    <section class="history">
-      <h1>Finished Events</h1>
-      <p>Wanna see details about previous events?</p>
-      <div class="center all-events-btn">
-          <a class="show-more" href="#">Show history</a>
-      </div>
-    </section>
-    
-    {% include "partials/footer.phtml" %}
-  </body>
+  <section class="history">
+    <h1>Finished Events</h1>
+    <p>Wanna see details about previous events?</p>
+    <div class="center all-events-btn">
+        <a class="show-more" href="#">Show history</a>
+    </div>
+  </section>
+  
+  {% include "partials/footer.phtml" %}
+</body>
 </html>
