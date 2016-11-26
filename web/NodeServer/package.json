@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "QuizUp App",
   "dependencies": {
-    "express": "4.10.2",
+    "express": "^4.10.2",
+    "mysql": "github:mysqljs/mysql",
     "socket.io": "^1.6.0"
   }
 }

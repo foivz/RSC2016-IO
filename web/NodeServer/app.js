@@ -24,10 +24,12 @@ app.get('/', function (req, res) {
 
 io.on('connection', function (socket) {
 
+    console.log("New user connected!");
+
     //Identify user
     socket.on('auth', function (email) {
-        var sql = "SELECT * FROM ?? WHERE ?? = ??";
-        var inserts = ['user', 'email', email.email];
+        var sql = "SELECT * FROM user WHERE email = ?";
+        var inserts = [email.email];
         sql = mysql.format(sql, inserts);
         dbConnection.query(sql, function (err, rows, fields) {
             if (err) throw err;
@@ -74,33 +76,46 @@ io.on('connection', function (socket) {
     });
 
     //Sends the next question to the participants when moderator pushes it
-    socket.on('nextquestion', function (eventId, moderatorId) {
+    socket.on('nextquestion', function (ids) {
         //Checks if the user who sent the start signal is moderator of the event
         var sql = "SELECT * FROM  question JOIN answer ON question.id = answer.question WHERE question.id = (SELECT current_question FROM event WHERE id = ? AND moderator = ?) + 1";
-        var inserts = [eventId, moderatorId];
+        var inserts = [ids.eventId, ids.moderatorId];
         sql = mysql.format(sql, inserts);
         dbConnection.query(sql, function (err, rows, fields) {
             if (err) throw err;
             if (rows.length > 0) {
+
                 io.emit('nextquestion', JSON.stringify(rows));
-            }
-            else {
+                dbConnection.query('UPDATE event SET current_question = current_question + 1 WHERE id = ?', { team: ids.teamId, event: ids.eventId, question: ids.questionId, points: points }, function (err, result) {
+                    if (err) throw err;
+                    console.log(result.insertId);
+                });
+
+            } else {
                 socket.emit('nextquestion', '{"id":0}');
             }
         });
     });
 
     //Sends the next question to the participants when moderator pushes it
-    socket.on('answer', function (eventId, userId, answerId) {
+    socket.on('answer', function (ids) {
         //Checks if the user who sent the start signal is moderator of the event
-        var sql = "SELECT userId FROM  question JOIN answer ON question.id = answer.question WHERE question.id = (SELECT current_question FROM event WHERE id = ? AND moderator = ?) + 1";
-        var inserts = [eventId, moderatorId];
+        var sql = "SELECT answer.is_true FROM question JOIN answer ON question.id = answer.question WHERE question.id = (SELECT current_question FROM event WHERE id = ?) AND answer.id = ?";
+        var inserts = [ids.eventId, ids.answerId];
         sql = mysql.format(sql, inserts);
         dbConnection.query(sql, function (err, rows, fields) {
             if (err) throw err;
             if (rows.length > 0) {
-                console.log(JSON.stringify(rows));
-                io.emit('nextquestion', JSON.stringify(rows));
+                if (rows[0].is_true) {
+                    var points = 1;
+                }
+                else {
+                    var inserts = 0;
+                }
+                dbConnection.query('INSERT INTO result SET ?', { team: ids.teamId, event: ids.eventId, question: ids.questionId, points: points }, function (err, result) {
+                    if (err) throw err;
+                    console.log(result.insertId);
+                });
             }
             else {
                 socket.emit('nextquestion', '{"id":0}');
@@ -112,7 +127,7 @@ io.on('connection', function (socket) {
     //When socket disconnects
     socket.on('disconnect', function () {
         console.log('user disconnected');
-        //dbConnection.end();
+        dbConnection.end();
     });
 });
 
