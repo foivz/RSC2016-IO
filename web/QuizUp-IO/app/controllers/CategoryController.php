@@ -3,9 +3,19 @@
 class CategoryController extends \Phalcon\Mvc\Controller
 {
 
-    public function indexAction()
+    public function indexAction($id=null)
     {
-        $this->view->categories = Category::find();
+      $this->view->newName = "";
+      $this->view->newId = "";;
+      if($id == null){
+        $this->view->isCreate = true;
+      } else {
+        $this->view->isCreate = false;
+        $category = Category::findFirstById($id);
+        $this->view->newName = $category->name;
+        $this->view->newId = $category->id;
+      }
+      $this->view->categories = Category::find();
     }
 
     public function createAction(){
@@ -13,11 +23,6 @@ class CategoryController extends \Phalcon\Mvc\Controller
       $category->name = $this->request->getPost('name');
       $category->save();
       $this->response->redirect("category");
-    }
-    
-    public function updateAction($id=null){
-       $category = Category::findFirstById($id);
-       $this->view->category = $category;
     }
     
     public function saveAction(){      

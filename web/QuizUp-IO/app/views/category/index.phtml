@@ -1,11 +1,16 @@
-<form method="post" action="{{url('category/create')}}">
+<form method="post" action="{% if isCreate == true %}{{url('category/create')}}{% else %}{{url('category/save')}}{%endif%}">
   <label for="name">Name:</label>
-  <input type="text" id="name" name="name" />
-  <input type="submit" value="Create new" />
+  <input type="text" id="name" name="name" value="{{newName}}" />
+  <input type="hidden" id="id" name="id" value="{{newId}}" />
+  {% if isCreate == true %}
+        <input type="submit" value="Create new" />
+  {%else %} 
+        <input type="submit" value="Save" />
+        <a href="{{url('category')}}">Cancel</a>
+  {% endif %}
 </form>
-  
   <ul>
       {% for category in categories %}
-        <li>{{category.id}} - {{category.name}}  <a href="{{ url('category/update/'~category.id) }}">Update</a>   <a href="{{ url('category/delete/'~category.id) }}">Delete</a></li>
+        <li>{{category.id}} - {{category.name}}  <a href="{{ url('category/'~category.id) }}">Update</a>   <a href="{{ url('category/delete/'~category.id) }}">Delete</a></li>
       {% endfor %}
   </ul>
