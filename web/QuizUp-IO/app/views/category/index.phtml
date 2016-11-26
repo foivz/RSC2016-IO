@@ -5,7 +5,9 @@
   <div class="dashboard">
     <div class="padded">
       <h1>List of categories</h1> 
-      <a href="" class="btn btn-primary">Add New</a>
+      <a href="" class="btn btn-primary" id="addCategory">Add New</a>
+      
+      {% include "partials/category-form.phtml" %}
 
       <table class="table">
         <tr>
@@ -13,9 +15,6 @@
           <th>Name</th>
           <th>Actions</th>
         </tr>
-        
-      
-
         {% for category in categories %}
           <tr>
             <td>{{category.id}}</td>
@@ -24,7 +23,7 @@
           </tr>
         {% endfor %}    
       </table>
-      {% include "partials/category-form.phtml" %}
+      
       <h1>Questions</h1>
       <a href="" class="btn btn-primary">Add New Question</a>
       {% include "partials/question-form.phtml" %}
@@ -35,5 +34,6 @@
   
   
   {% include "partials/footer-admin.phtml" %}
+  {{ assets.outputJs() }}
 </body>
 </html>

@@ -16,6 +16,8 @@ class CategoryController extends ControllerBase
         $this->view->newId = $category->id;
       }
       $this->view->categories = Category::find();
+
+      $this->assets->addJs("js/app.js");
     }
 
     public function createAction(){
