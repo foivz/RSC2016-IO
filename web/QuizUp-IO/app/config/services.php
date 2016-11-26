@@ -103,3 +103,9 @@ $di->setShared('session', function () {
 
     return $session;
 });
+
+$di->set('router',function(){
+  $router = new \Phalcon\Mvc\Router();
+  $router->add('/controller/{id:\d+}',array("action" => "update"));
+  return $router;
+});
