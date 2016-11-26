@@ -73,7 +73,7 @@ io.on('connection', function (socket) {
         });
     });
 
-    //Get event data over id
+    //Sends the next question to the participants when moderator pushes it
     socket.on('nextquestion', function (eventId, moderatorId) {
         //Checks if the user who sent the start signal is moderator of the event
         var sql = "SELECT * FROM  question JOIN answer ON question.id = answer.question WHERE question.id = (SELECT current_question FROM event WHERE id = ? AND moderator = ?) + 1";
@@ -89,6 +89,25 @@ io.on('connection', function (socket) {
             }
         });
     });
+
+    //Sends the next question to the participants when moderator pushes it
+    socket.on('answer', function (eventId, userId, answerId) {
+        //Checks if the user who sent the start signal is moderator of the event
+        var sql = "SELECT userId FROM  question JOIN answer ON question.id = answer.question WHERE question.id = (SELECT current_question FROM event WHERE id = ? AND moderator = ?) + 1";
+        var inserts = [eventId, moderatorId];
+        sql = mysql.format(sql, inserts);
+        dbConnection.query(sql, function (err, rows, fields) {
+            if (err) throw err;
+            if (rows.length > 0) {
+                console.log(JSON.stringify(rows));
+                io.emit('nextquestion', JSON.stringify(rows));
+            }
+            else {
+                socket.emit('nextquestion', '{"id":0}');
+            }
+        });
+    });
+
 
     //When socket disconnects
     socket.on('disconnect', function () {
