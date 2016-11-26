@@ -1,0 +1,11 @@
+<form method="post" action="{{url('category/create')}}">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" />
+  <input type="submit" value="Create new" />
+</form>
+  
+  <ul>
+      {% for category in categories %}
+        <li>{{category.id}} - {{category.name}}  <a href="{{ url('category/update/'~category.id) }}">Update</a>   <a href="{{ url('category/delete/'~category.id) }}">Delete</a></li>
+      {% endfor %}
+  </ul>

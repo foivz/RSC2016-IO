@@ -45,7 +45,8 @@ $di->setShared('view', function () {
 
             $volt->setOptions([
                 'compiledPath' => $config->application->cacheDir,
-                'compiledSeparator' => '_'
+                'compiledSeparator' => '_',
+                'compileAlways' => true
             ]);
 
             return $volt;
@@ -101,4 +102,10 @@ $di->setShared('session', function () {
     $session->start();
 
     return $session;
+});
+
+$di->set('router',function(){
+  $router = new \Phalcon\Mvc\Router();
+  $router->add('/controller/{id:\d+}',array("action" => "update"));
+  return $router;
 });

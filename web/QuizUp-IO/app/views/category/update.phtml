@@ -1,0 +1,7 @@
+<form method="post" action="{{url('category/save')}}">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" value="{{category.name}}"/>
+  <input type="hidden" id="id" name="id" value="{{category.id}}"/>
+  <input type="submit" value="Save" />
+  <a href="{{url('category')}}">Cancel</a>
+</form>
