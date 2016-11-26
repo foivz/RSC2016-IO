@@ -1,6 +1,6 @@
 <?php
 
-class EventController extends \Phalcon\Mvc\Controller
+class EventController extends ControllerBase
 {
 
     public function indexAction()

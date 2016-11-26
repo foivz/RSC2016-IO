@@ -1,6 +1,6 @@
 <?php
 
-class LoginController extends \Phalcon\Mvc\Controller
+class LoginController extends ControllerBase
 {
     public function indexAction()
     {

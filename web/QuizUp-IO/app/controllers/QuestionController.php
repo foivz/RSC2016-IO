@@ -1,6 +1,6 @@
 <?php
 
-class QuestionController extends \Phalcon\Mvc\Controller
+class QuestionController extends ControllerBase
 {
 
     public function indexAction()

@@ -18,6 +18,11 @@ h1,h2,h3,h4,h5,h6{
 font-family: 'Source Sans Pro', sans-serif;
 }
 
+.login{
+  padding: 50px 0;
+  text-align: center;
+}
+
 /*-----------------------------
  Navbar                    
 ------------------------------*/
@@ -103,7 +108,7 @@ text-shadow: 1px 1px #333;
   padding: 80px 0 100px;
 }
 
-.events h1{
+.events h1, .history h1{
   text-align: center;
   text-transform: uppercase;
 }
@@ -184,6 +189,7 @@ Sidebar
 .dashboard{
   width: 75%;
   float: left;
+  color: #333;
 }
 
 .dashboard .fa-edit, .dashboard .fa-trash{
