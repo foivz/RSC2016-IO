@@ -1,6 +1,6 @@
 <?php
 
-class AnswerController extends Phalcon\Mvc\Controller
+class AnswerController extends ControllerBase
 {
 	public function indexAction()
     {

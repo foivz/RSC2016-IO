@@ -1,0 +1,22 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/googleLoginButton"
+            android:layout_width="240sp"
+            android:layout_height="48sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="180sp"
+            android:text="Sign in with Google"
+            android:background="#cf4332"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"/>
+
+    </RelativeLayout>
+</FrameLayout>

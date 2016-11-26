@@ -5,10 +5,8 @@
   <div class="dashboard">
     <div class="padded">
       <h1>List of categories</h1> 
-      <a href="" class="btn btn-primary" id="addCategory">Add New</a>
+      <a href="#admin-form" class="btn btn-primary" id="addCategory">Add New</a>
       
-      {% include "partials/category-form.phtml" %}
-
       <table class="table">
         <tr>
           <th>ID</th>
@@ -23,11 +21,8 @@
           </tr>
         {% endfor %}    
       </table>
-      
-      <h1>Questions</h1>
-      <a href="" class="btn btn-primary">Add New Question</a>
-      {% include "partials/question-form.phtml" %}
-    </div>
+
+      {% include "partials/category-form.phtml" %}
     
   </div>
   

@@ -1,6 +1,6 @@
 <?php
 
-class LoginController extends \Phalcon\Mvc\Controller
+class LoginController extends ControllerBase
 {
     public function indexAction()
     {
@@ -27,7 +27,15 @@ class LoginController extends \Phalcon\Mvc\Controller
 		}
 		
 		$this->session->set('USER', $newUser);
-		$this->session->start();
+	}
+	
+	public function logoutAction()
+	{
+		if ($this->session->has('USER'))
+		{
+			$this->session->destroy();
+		}
+		$this->response->redirect('index');
 	}
 }
 

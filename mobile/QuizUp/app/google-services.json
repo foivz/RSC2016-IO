@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "429048752226",
+    "project_id": "quizup-150714"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429048752226:android:2ef5086b893c0e92",
+        "android_client_info": {
+          "package_name": "rsc.io.quizup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "429048752226-hnia33j3jlvc3hh9r9rce0n0qsrvmnrd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rsc.io.quizup",
+            "certificate_hash": "DFFAB8E344B29A4E694848BF6A6F726827F1A757"
+          }
+        },
+        {
+          "client_id": "429048752226-538ir293mjvofqpoab8hugs64slsg79v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfjZydBkDCyW7vqRAWt8jll0C6Vx4s5dY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 <?php
 
-class ModeratorController extends \Phalcon\Mvc\Controller
+class ModeratorController extends ControllerBase
 {
 
     public function indexAction()

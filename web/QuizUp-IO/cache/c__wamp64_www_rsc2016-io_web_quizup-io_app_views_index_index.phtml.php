@@ -13,6 +13,8 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Source+Sans+Pro:200,400,700" rel="stylesheet">
   
   <?= $this->assets->outputCss() ?>
+  <script src='http://cdn.tinymce.com/4/tinymce.min.js'></script>
+
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,7 +44,11 @@
         <li><a href="#">History</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?= $this->url->get('login') ?>">Login</a></li>
+		<?php if (!$this->session->has('USER')) { ?>
+		<li><a href="<?= $this->url->get('login') ?>">Login</a></li>
+		<?php } else { ?>
+		<li><a href="<?= $this->url->get('login/logout') ?>">Logout</a></li>
+		<?php } ?>
       </ul>
 
     </div><!-- /.navbar-collapse -->
@@ -122,5 +128,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="public/js/bootstrap.min.js"></script>
+
 </body>
 </html>
