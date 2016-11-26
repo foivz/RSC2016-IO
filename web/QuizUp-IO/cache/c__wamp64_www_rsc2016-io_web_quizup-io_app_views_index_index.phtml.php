@@ -115,7 +115,7 @@
     </div>
   </section>
   
-  <footer>
+  <footer class="clearfix">
   <p>Copyright 2016. QuizUp</p>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

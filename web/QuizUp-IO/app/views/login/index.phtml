@@ -3,6 +3,18 @@
     <div id="fb-root"></div>
     <div id="status"></div>
     <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+	
+	<div id="gConnect" class="button">
+      <button class="g-signin"
+          data-scope="email profile"
+          data-clientid="429048752226-538ir293mjvofqpoab8hugs64slsg79v.apps.googleusercontent.com"
+		  data-callback="onSignInCallback"
+          data-theme="dark"
+          data-cookiepolicy="single_host_origin">
+      </button>
+    </div>
+
+	
     {{ assets.outputJs() }}
     {% include "partials/footer.phtml" %}
   </body>

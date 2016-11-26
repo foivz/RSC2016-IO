@@ -1,12 +1,12 @@
 <?php
 
-class CategoryController extends \Phalcon\Mvc\Controller
+class CategoryController extends ControllerBase
 {
 
     public function indexAction($id=null)
     {
       $this->view->newName = "";
-      $this->view->newId = "";;
+      $this->view->newId = "";
       if($id == null){
         $this->view->isCreate = true;
       } else {
