@@ -1,6 +1,6 @@
 <?php
 
-class Team extends \Phalcon\Mvc\Model
+class Answer extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -15,17 +15,23 @@ class Team extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(type="string", length=128, nullable=false)
+     * @Column(type="string", length=60, nullable=false)
      */
-    public $name;
+    public $answer;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=false)
+     */
+    public $question;
 
     /**
      * Initialize method for model.
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Participants', 'team', ['alias' => 'Participants']);
-        $this->hasMany('id', 'UserTeam', 'team', ['alias' => 'UserTeam']);
+        $this->belongsTo('question', 'Question', 'id', ['alias' => 'Question']);
     }
 
     /**
@@ -35,14 +41,14 @@ class Team extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'team';
+        return 'answer';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Team[]
+     * @return Answer[]
      */
     public static function find($parameters = null)
     {
@@ -53,7 +59,7 @@ class Team extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Team
+     * @return Answer
      */
     public static function findFirst($parameters = null)
     {

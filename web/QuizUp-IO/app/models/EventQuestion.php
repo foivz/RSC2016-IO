@@ -1,31 +1,31 @@
 <?php
 
-class Team extends \Phalcon\Mvc\Model
+class EventQuestion extends \Phalcon\Mvc\Model
 {
 
     /**
      *
      * @var integer
      * @Primary
-     * @Identity
      * @Column(type="integer", length=11, nullable=false)
      */
-    public $id;
+    public $event;
 
     /**
      *
-     * @var string
-     * @Column(type="string", length=128, nullable=false)
+     * @var integer
+     * @Primary
+     * @Column(type="integer", length=11, nullable=false)
      */
-    public $name;
+    public $question;
 
     /**
      * Initialize method for model.
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Participants', 'team', ['alias' => 'Participants']);
-        $this->hasMany('id', 'UserTeam', 'team', ['alias' => 'UserTeam']);
+        $this->belongsTo('event', 'Event', 'id', ['alias' => 'Event']);
+        $this->belongsTo('question', 'Question', 'id', ['alias' => 'Question']);
     }
 
     /**
@@ -35,14 +35,14 @@ class Team extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'team';
+        return 'event_question';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Team[]
+     * @return EventQuestion[]
      */
     public static function find($parameters = null)
     {
@@ -53,7 +53,7 @@ class Team extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Team
+     * @return EventQuestion
      */
     public static function findFirst($parameters = null)
     {

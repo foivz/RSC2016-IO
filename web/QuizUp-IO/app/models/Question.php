@@ -1,6 +1,6 @@
 <?php
 
-class Team extends \Phalcon\Mvc\Model
+class Question extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -15,17 +15,40 @@ class Team extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(type="string", length=128, nullable=false)
+     * @Column(type="string", nullable=false)
      */
-    public $name;
+    public $text;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=6, nullable=false)
+     */
+    public $time;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=true)
+     */
+    public $category;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=true)
+     */
+    public $type;
 
     /**
      * Initialize method for model.
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Participants', 'team', ['alias' => 'Participants']);
-        $this->hasMany('id', 'UserTeam', 'team', ['alias' => 'UserTeam']);
+        $this->hasMany('id', 'Answer', 'question', ['alias' => 'Answer']);
+        $this->hasMany('id', 'EventQuestion', 'question', ['alias' => 'EventQuestion']);
+        $this->belongsTo('category', 'Category', 'id', ['alias' => 'Category']);
+        $this->belongsTo('type', 'QuestionType', 'id', ['alias' => 'QuestionType']);
     }
 
     /**
@@ -35,14 +58,14 @@ class Team extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'team';
+        return 'question';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Team[]
+     * @return Question[]
      */
     public static function find($parameters = null)
     {
@@ -53,7 +76,7 @@ class Team extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Team
+     * @return Question
      */
     public static function findFirst($parameters = null)
     {

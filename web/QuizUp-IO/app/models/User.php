@@ -9,16 +9,10 @@ class User extends \Phalcon\Mvc\Model
      *
      * @var integer
      * @Primary
+     * @Identity
      * @Column(type="integer", length=11, nullable=false)
      */
     public $id;
-
-    /**
-     *
-     * @var string
-     * @Column(type="string", length=40, nullable=false)
-     */
-    public $nickname;
 
     /**
      *
@@ -40,6 +34,20 @@ class User extends \Phalcon\Mvc\Model
      * @Column(type="integer", length=1, nullable=false)
      */
     public $is_admin;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=40, nullable=false)
+     */
+    public $name;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=40, nullable=false)
+     */
+    public $surname;
 
     /**
      * Validations and business logic
