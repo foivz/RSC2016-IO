@@ -20,8 +20,8 @@ function handleResponse(resp)
 			"email": email, 
 			"displayName": displayName
 		},
-		success: function(data) {
-			alert(data);
+		success: function() {
+			document.location.pathname = "QuizUP-IO/index";
 		}
 	});
 }
