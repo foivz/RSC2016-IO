@@ -1,3 +1,3 @@
 # RSC2016-IO
 
-==Odustali.==
+# ODUSTALI!
