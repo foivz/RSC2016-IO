@@ -1,5 +1,6 @@
 package rsc.io.quizup.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -25,5 +26,9 @@ public class MasterActivity extends AppCompatActivity
                 .add(R.id.fragment_container, loginFragment)
                 .commit();
         }
+
+       Intent intent = new Intent(this, ModeratorActivity.class);
+       startActivity(intent);
+
     }
 }
